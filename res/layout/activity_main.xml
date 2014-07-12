@@ -38,18 +38,16 @@
       android:text="Activity"
     />
 </LinearLayout>
+
 <LinearLayout
-    android:layout_above="@id/bottom"
-    android:layout_height="fill_parent"
-    android:layout_width="fill_parent"
-    android:orientation="vertical"
-    >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
 
     <ImageView
         android:id="@+id/photo_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@null" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="30dp" />
 </LinearLayout>
 
 <LinearLayout
@@ -61,12 +59,12 @@
     android:background="@android:drawable/bottom_bar" >
 
     <Button
-        android:id="@+id/Button03"
+        android:id="@+id/CreateBoard"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dip"
         android:layout_weight="1"
-        android:text="Board" />
+        android:text="Make Board" />
 
 
 </LinearLayout>
