@@ -30,7 +30,7 @@
 
         </activity>
         <activity
-           	android:name=".ListActivity" >
+           	android:name=".BoardActivity" >
         </activity>
 
                 <receiver android:exported="true" android:name="jp.appAdForce.android.InstallReceiver" >

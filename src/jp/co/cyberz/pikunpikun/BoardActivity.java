@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 
-public class ListActivity extends Activity {
+public class BoardActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
