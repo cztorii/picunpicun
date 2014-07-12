@@ -1,12 +1,18 @@
 package jp.co.cyberz.pikunpikun;
 
 import android.app.Activity;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.os.Build;
 
 public class BoardActivity extends Activity {
@@ -14,7 +20,14 @@ public class BoardActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_board);
+		
+		LinearLayout l = new LinearLayout(this);
+		l.setOrientation(LinearLayout.VERTICAL);
+		setContentView(l);
+		l.addView(new Board(this));
+		
+//		setContentView(R.layout.activity_board);
+		
 	}
 
 	@Override
@@ -36,7 +49,7 @@ public class BoardActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-
+	
 	/**
 	 * A placeholder fragment containing a simple view.
 	 */

@@ -72,7 +72,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		Intent intent=new Intent();
 		switch(v.getId()){
 		case R.id.board:
-			intent.setClassName(this,"jp.co.cyberz.pikunpikun.ListActivity");
+			intent.setClassName(this,"jp.co.cyberz.pikunpikun.BoardActivity");
 			// intent.putExtra("org.jpn.techbooster.demo.intent.testString", "!TEST STRING!");
 			startActivity(intent);
 			break;
