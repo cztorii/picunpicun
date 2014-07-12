@@ -21,9 +21,6 @@ public class GalleryActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		
-		super.onCreate(savedInstanceState);
 		setContentView(R.layout.gallery);
 
 		GridView gridview = (GridView) findViewById(R.id.gridview);
