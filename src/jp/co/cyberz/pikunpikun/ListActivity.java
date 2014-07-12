@@ -1,34 +1,20 @@
 package jp.co.cyberz.pikunpikun;
 
-//import android.support.v7.app.ActionBarActivity;
-//import android.support.v7.app.ActionBar;
-//import android.support.v4.app.Fragment;
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.os.Build;
-import jp.appAdForce.android.AdManager;
 
-public class MainActivity extends Activity implements OnClickListener {
+public class ListActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-//		AdManager ad = new AdManager(this);
-//		ad.sendConversion("");
-
-		//buttonを取得
-        Button btn = (Button)findViewById(R.id.board);
-        btn.setOnClickListener(this);
 
 		/*
 		if (savedInstanceState == null) {
@@ -36,12 +22,6 @@ public class MainActivity extends Activity implements OnClickListener {
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
 		*/
-	}
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-		//AnalyticsManager.sendStartSession(this);
 	}
 
 	@Override
@@ -62,16 +42,6 @@ public class MainActivity extends Activity implements OnClickListener {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
-	}
-
-	public void onClick(View v) {
-		// TODO 自動生成されたメソッド・スタブ
-        Intent intent=new Intent();
-        intent.setClassName(this,"jp.co.cyberz.pikunpikun.ListActivity");
-       // intent.putExtra("org.jpn.techbooster.demo.intent.testString", "!TEST STRING!");
-
-        startActivity(intent);
-
 	}
 
 	/**

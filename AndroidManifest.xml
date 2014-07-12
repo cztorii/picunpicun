@@ -21,7 +21,29 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="picunpicun" />
+            </intent-filter>
+
         </activity>
+        <activity
+           	android:name=".ListActivity" >
+        </activity>
+
+                <receiver android:exported="true" android:name="jp.appAdForce.android.InstallReceiver" >
+            <intent-filter >
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="APPADFORCE_APP_ID" android:value="2390" />
+        <meta-data android:name="APPADFORCE_SERVER_URL" android:value="01c2039212f54cebb80526f880beaa11c1fee0f08bcb85e8cb084b8b9557754645" />
+        <meta-data android:name="APPADFORCE_CRYPTO_SALT" android:value="a5fd1ce9d6b62fd140ef176a9f4afcf5fb183ab0" />
+        <meta-data android:name="ANALYTICS_APP_KEY" android:value="feb088ebd7050fe9682bd87c2279bdc6f2cf3418" />
+
     </application>
+
 
 </manifest>
