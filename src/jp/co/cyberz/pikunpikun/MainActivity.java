@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.os.Build;
 import jp.appAdForce.android.AdManager;
 
+//testu
+
 public class MainActivity extends Activity implements OnClickListener {
 
 	@Override
