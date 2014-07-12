@@ -41,6 +41,7 @@ public class MainActivity extends Activity implements OnClickListener {
     private static final int WC = ViewGroup.LayoutParams.WRAP_CONTENT;
     public static ArrayList<String> keyList;
 
+
     private Uri mImageUri;
     private String fileName;
     private ArrayList<Uri> uriList;
@@ -66,6 +67,9 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		Button cbtn = (Button)findViewById(R.id.camera);
 		cbtn.setOnClickListener(this);
+
+		Button gbtn = (Button)findViewById(R.id.gallery);
+		gbtn.setOnClickListener(this);
 
 		/*
 		if (savedInstanceState == null) {
@@ -116,6 +120,11 @@ public class MainActivity extends Activity implements OnClickListener {
             intent.putExtra(MediaStore.EXTRA_OUTPUT, mImageUri);
             startActivityForResult(intent, IMAGE_CAPTURE);
 			break;
+		case R.id.gallery:
+			intent.setClassName(this,"jp.co.cyberz.pikunpikun.GalleryActivity");
+			// intent.putExtra("org.jpn.techbooster.demo.intent.testString", "!TEST STRING!");
+			startActivity(intent);
+			break;
 		}
 	}
 
@@ -165,16 +174,16 @@ public class MainActivity extends Activity implements OnClickListener {
 //        	imageView.setImageURI(uri);
 //        }
 //        imageView.setImageURI(mImageUri);
-//        imageView.setImageURI(mImageUri);
+        imageView.setImageURI(mImageUri);
 
 
         //SharedPreferenceに保存した文字列からBitmap復元
-        byte[] bytes = Base64.decode(pref.getString(fileName,"").getBytes(),Base64.DEFAULT);
-
-        ImageView image = (ImageView)findViewById(R.id.photo_image);
-        image.setImageBitmap(
-                BitmapFactory.decodeByteArray(bytes, 0, bytes.length)
-        );
+//        byte[] bytes = Base64.decode(pref.getString(fileName,"").getBytes(),Base64.DEFAULT);
+//
+//        ImageView image = (ImageView)findViewById(R.id.photo_image);
+//        image.setImageBitmap(
+//                BitmapFactory.decodeByteArray(bytes, 0, bytes.length)
+//        );
     }
 
     /**
