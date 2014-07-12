@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+<LinearLayout
+    android:id="@+id/bottom"
+    android:layout_width="fill_parent"
+    android:layout_height="54dip"
+    android:layout_alignParentBottom="true"
+    android:background="@android:drawable/bottom_bar"
+    >
+    <Button
+      android:id="@+id/board"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="4dip"
+      android:layout_weight="1"
+      android:text="Board"
+    />
+
+    <Button
+      android:id="@+id/camera"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="4dip"
+      android:layout_weight="1"
+      android:text="Camera"
+    />
+    <Button
+      android:id="@+id/activity"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="4dip"
+      android:layout_weight="1"
+      android:text="Activity"
+    />
+</LinearLayout>
+<LinearLayout
+    android:layout_above="@id/bottom"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    android:orientation="vertical"
+    >
+</LinearLayout>
+
+</RelativeLayout>
