@@ -26,6 +26,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.os.Build;
@@ -36,6 +37,10 @@ import jp.appAdForce.android.AdManager;
 public class MainActivity extends Activity implements OnClickListener {
 	private static final int IMAGE_CAPTURE = 10001;
     private static final String KEY_IMAGE_URI = "KEY_IMAGE_URI";
+    private static final String PHOTO_KEY_LIST = "PHOTO_KEY_LIST";
+    private static final int WC = ViewGroup.LayoutParams.WRAP_CONTENT;
+    private static ArrayList<String> keyList;
+
     private Uri mImageUri;
     private String fileName;
     private ArrayList<Uri> uriList;
@@ -50,6 +55,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		pref = getSharedPreferences("pref",MODE_PRIVATE);
 
 		uriList = new ArrayList<Uri>();
+		keyList = new ArrayList<String>();
 
 		//		AdManager ad = new AdManager(this);
 		//		ad.sendConversion("");
@@ -152,20 +158,23 @@ public class MainActivity extends Activity implements OnClickListener {
      * ImageViewに画像をセットする
      */
     private void setImageView() {
+
         ImageView imageView = (ImageView) findViewById(R.id.photo_image);
 
 //        for (Uri uri : uriList) {
 //        	imageView.setImageURI(uri);
 //        }
-        imageView.setImageURI(mImageUri);
+//        imageView.setImageURI(mImageUri);
+//        imageView.setImageURI(mImageUri);
+
 
         //SharedPreferenceに保存した文字列からBitmap復元
-//        byte[] bytes = Base64.decode(pref.getString(fileName,"").getBytes(),Base64.DEFAULT);
-//
-//        ImageView image = (ImageView)findViewById(R.id.photo_image);
-//        image.setImageBitmap(
-//                BitmapFactory.decodeByteArray(bytes, 0, bytes.length)
-//        );
+        byte[] bytes = Base64.decode(pref.getString(fileName,"").getBytes(),Base64.DEFAULT);
+
+        ImageView image = (ImageView)findViewById(R.id.photo_image);
+        image.setImageBitmap(
+                BitmapFactory.decodeByteArray(bytes, 0, bytes.length)
+        );
     }
 
     /**
@@ -219,8 +228,6 @@ public class MainActivity extends Activity implements OnClickListener {
         }
         Uri uri = getContentResolver().insert(Images.Media.EXTERNAL_CONTENT_URI, values);
 
-
-
         // アプリ内領域に保存
 //        pref = getSharedPreferences("pref",MODE_PRIVATE);
         //BitmapをBase64で文字列にしてSharedPreferenceに書き込む
@@ -228,7 +235,9 @@ public class MainActivity extends Activity implements OnClickListener {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
         String bitmapString = Base64.encodeToString(outputStream.toByteArray(), Base64.DEFAULT);
-        pref.edit().putString("fileName",bitmapString).commit();
+        pref.edit().putString(fileName, bitmapString).commit();
+
+        keyList.add(fileName);
 
         return uri;
     }
