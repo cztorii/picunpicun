@@ -14,9 +14,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.os.Build;
+import android.provider.MediaStore;
 import jp.appAdForce.android.AdManager;
-
-//testu
 
 public class MainActivity extends Activity implements OnClickListener {
 
@@ -25,19 +24,22 @@ public class MainActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-//		AdManager ad = new AdManager(this);
-//		ad.sendConversion("");
+		//		AdManager ad = new AdManager(this);
+		//		ad.sendConversion("");
 
 		//buttonを取得
-        Button btn = (Button)findViewById(R.id.board);
-        btn.setOnClickListener(this);
+		Button btn = (Button)findViewById(R.id.board);
+		btn.setOnClickListener(this);
+
+		Button cbtn = (Button)findViewById(R.id.camera);
+		cbtn.setOnClickListener(this);
 
 		/*
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
-		*/
+		 */
 	}
 
 	@Override
@@ -67,32 +69,30 @@ public class MainActivity extends Activity implements OnClickListener {
 	}
 
 	public void onClick(View v) {
-		// TODO 自動生成されたメソッド・スタブ
-        Intent intent=new Intent();
-        intent.setClassName(this,"jp.co.cyberz.pikunpikun.ListActivity");
-       // intent.putExtra("org.jpn.techbooster.demo.intent.testString", "!TEST STRING!");
-
-        startActivity(intent);
-
-	}
-
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
-	/*
-	public static class PlaceholderFragment extends Fragment {
-
-		public PlaceholderFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_main, container,
-					false);
-			return rootView;
+		Intent intent=new Intent();
+		switch(v.getId()){
+		case R.id.board:
+			intent.setClassName(this,"jp.co.cyberz.pikunpikun.ListActivity");
+			// intent.putExtra("org.jpn.techbooster.demo.intent.testString", "!TEST STRING!");
+			startActivity(intent);
+			break;
+		case R.id.camera:
+			intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
+			intent.addCategory(Intent.CATEGORY_DEFAULT);
+			startActivityForResult(intent, 0);
+			break;
 		}
 	}
-	*/
-
+//	@Override
+//	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//		if (requestCode == IMAGE_CAPTURE) {
+//			Log.d(TAG, "onActivityResult");
+//			if (resultCode == RESULT_OK) {
+//				Bundle bundle = data.getExtras();
+//				Bitmap bitmap = (Bitmap) bundle.getParcelable("data");
+//				ImageView imageView = (ImageView) findViewById(R.id.photo_image);
+//				imageView.setImageBitmap(bitmap);
+//			}
+//		}
+//	}
 }
