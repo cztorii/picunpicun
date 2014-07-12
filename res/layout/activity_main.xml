@@ -1,8 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    >
+    android:gravity="top"
+    android:orientation="vertical" >
+
 <LinearLayout
     android:id="@+id/bottom"
     android:layout_width="fill_parent"
@@ -10,6 +11,7 @@
     android:layout_alignParentBottom="true"
     android:background="@android:drawable/bottom_bar"
     >
+
     <Button
       android:id="@+id/board"
       android:layout_width="fill_parent"
@@ -28,20 +30,43 @@
       android:text="Camera"
     />
     <Button
-      android:id="@+id/activity"
+      android:id="@+id/gallery"
       android:layout_width="fill_parent"
       android:layout_height="wrap_content"
       android:layout_marginTop="4dip"
       android:layout_weight="1"
-      android:text="Activity"
+      android:text="Gallery"
     />
 </LinearLayout>
+
 <LinearLayout
-    android:layout_above="@id/bottom"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/photo_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="30dp" />
+</LinearLayout>
+
+<LinearLayout
+    android:id="@+id/header"
     android:layout_width="fill_parent"
-    android:orientation="vertical"
-    >
+    android:layout_height="54dip"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:background="@android:drawable/bottom_bar" >
+
+    <Button
+        android:id="@+id/CreateBoard"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dip"
+        android:layout_weight="1"
+        android:text="Make Board" />
+
+
 </LinearLayout>
 
 </RelativeLayout>
