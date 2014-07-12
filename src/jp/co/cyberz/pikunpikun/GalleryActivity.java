@@ -12,21 +12,27 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.os.Build;
 
-public class BoardActivity extends Activity {
+public class GalleryActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		LinearLayout l = new LinearLayout(this);
-		l.setOrientation(LinearLayout.VERTICAL);
-		setContentView(l);
-		l.addView(new Board(this));
 		
-//		setContentView(R.layout.activity_board);
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.gallery);
+
+		GridView gridview = (GridView) findViewById(R.id.gridview);
+		gridview.setAdapter(new GalleryImageAdapter(this));
+		
+//		LinearLayout l = new LinearLayout(this);
+//		l.setOrientation(LinearLayout.VERTICAL);
+//		setContentView(l);
+//		l.addView(new Board(this));
 		
 	}
 

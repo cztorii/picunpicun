@@ -39,7 +39,7 @@ public class MainActivity extends Activity implements OnClickListener {
     private static final String KEY_IMAGE_URI = "KEY_IMAGE_URI";
     private static final String PHOTO_KEY_LIST = "PHOTO_KEY_LIST";
     private static final int WC = ViewGroup.LayoutParams.WRAP_CONTENT;
-    private static ArrayList<String> keyList;
+    public static ArrayList<String> keyList;
 
     private Uri mImageUri;
     private String fileName;
